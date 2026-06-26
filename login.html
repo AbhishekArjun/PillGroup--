@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Pilli Group Foundation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">Pilli Group Foundation</a>
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="churches.html">Churches & Faith Communities</a>
+          <a href="individuals.html">Individual Givers</a>
+          <a href="login.html" class="active">Login</a>
+          <a href="signup.html">Sign Up</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="auth-page">
+      <div class="container auth-shell">
+        <div class="auth-card">
+          <p class="eyebrow">Access your account</p>
+          <h1>Welcome back</h1>
+          <p>Sign in to manage your sponsorship journey and stay connected with the foundation.</p>
+          <form id="login-form" class="auth-form">
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" required />
+            </label>
+            <button class="btn btn-primary" type="submit">Log In</button>
+            <p class="form-status" aria-live="polite"></p>
+          </form>
+          <p class="auth-link-row">
+            New here?
+            <a href="signup.html">Create an account</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

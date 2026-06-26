@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Churches & Faith Communities | Pilli Group Foundation</title>
+    <meta
+      name="description"
+      content="Partner with Pilli Group Foundation to care for children in need through church sponsorship, prayer, and mission-driven giving."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">Pilli Group Foundation</a>
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="churches.html" class="active">Churches & Faith Communities</a>
+          <a href="individuals.html">Individual Givers</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero hero-small">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Faith-led impact</p>
+            <h1>Sow Seeds of Faith. Reap Harvests of Hope.</h1>
+            <p class="hero-copy">
+              Answer the call to care for the least of these through child sponsorship that transforms lives from kindergarten through graduation.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#campaigns">Start a Church Campaign</a>
+              <a class="btn btn-secondary" href="#ministry-kit">Request a Free Ministry Kit</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <h3>“Religion that God our Father accepts as pure and faultless is this: to look after orphans and widows in their distress.”</h3>
+            <p>— James 1:27</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Called to serve</p>
+            <h2>We handle the logistics, while your church provides the prayer, love, and care.</h2>
+          </div>
+          <p>
+            Pilli Group Foundation partners with churches, ministries, and faith communities to fulfill the biblical mandate of caring for children in need. Our team coordinates the delivery of education support and reporting so your congregation can stay focused on service.
+          </p>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Church partnership program</p>
+            <h2>Programs designed for congregations of every size.</h2>
+          </div>
+          <div class="pill-grid">
+            <article>
+              <h3>Congregation sponsorship</h3>
+              <p>Your church sponsors 5–50 children as a community.</p>
+            </article>
+            <article>
+              <h3>Mission trip integration</h3>
+              <p>Visit your sponsored children in the field and build enduring relationships.</p>
+            </article>
+            <article>
+              <h3>Youth group engagement</h3>
+              <p>Teens write letters, pray, and learn global stewardship.</p>
+            </article>
+            <article>
+              <h3>Prayer warrior network</h3>
+              <p>Commit to praying for specific children and schools.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container two-column">
+          <div>
+            <p class="eyebrow">What your church receives</p>
+            <ul class="check-list">
+              <li>Prayer cards with photos and bios of sponsored children</li>
+              <li>Quarterly video updates from our field teams</li>
+              <li>Free sermon resources and stewardship graphics</li>
+              <li>Full tax documentation for charitable giving records</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Start a campaign</h3>
+            <ul class="check-list" id="campaigns">
+              <li>40 Days of Compassion</li>
+              <li>Christmas Child Drive</li>
+              <li>Vacation Bible School Mission</li>
+            </ul>
+            <a class="btn btn-primary" id="ministry-kit" href="#contact-form">Order a Free Ministry Kit</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Faith in action</p>
+            <h2>Churches that serve grow deeper in compassion and stewardship.</h2>
+          </div>
+          <div class="story-grid">
+            <blockquote>
+              “Our youth group sponsors 12 children in India. The letters we receive have transformed how our teenagers understand gratitude and global responsibility.”
+              <footer>— Pastor David R., Community Baptist Church</footer>
+            </blockquote>
+            <blockquote>
+              “We’ve seen members who never gave beyond the tithe become passionate monthly sponsors. It has deepened our congregation’s faith.”
+              <footer>— Reverend Sarah T., Grace Fellowship</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container two-column">
+          <div>
+            <p class="eyebrow">Partner with us</p>
+            <h2>Bring your ministry into a life-changing education journey.</h2>
+            <p>
+              Whether you are launching a one-time campaign or building a long-term sponsorship program, we will support your church every step of the way.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Request a church visit</h3>
+            <form id="contact-form" data-collection="church-partnerships">
+              <label>
+                Church Name
+                <input type="text" name="name" required />
+              </label>
+              <label>
+                Contact Email
+                <input type="email" name="email" required />
+              </label>
+              <label>
+                How would you like to partner?
+                <select name="interest">
+                  <option>Church sponsorship</option>
+                  <option>Prayer network</option>
+                  <option>Mission trip</option>
+                  <option>Ministry kit</option>
+                </select>
+              </label>
+              <label>
+                Notes
+                <textarea name="message" rows="4" required></textarea>
+              </label>
+              <button class="btn btn-primary" type="submit">Request Information</button>
+              <p id="form-status" class="form-status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>Pilli Group Foundation</h3>
+          <p>Faith communities can change the future of children through prayers, generosity, and action.</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <p>Email: foundation@pilligroup.com</p>
+          <p>Phone: +1 (800) 555-PILLI ext. 3</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
