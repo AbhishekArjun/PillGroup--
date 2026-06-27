@@ -4,7 +4,7 @@ import { lazy, Suspense } from 'react';
 const Login = lazy(() => import('../pages/Login.jsx'));
 const Signup = lazy(() => import('../pages/Signup.jsx'));
 
-function AuthModal({ mode, onClose }) {
+function AuthModal({ mode, onClose, onSuccess }) {
   if (!mode) return null;
 
   return createPortal(
@@ -29,7 +29,7 @@ function AuthModal({ mode, onClose }) {
         </div>
         <div className="p-6">
           <Suspense fallback={<div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-8 text-center text-slate-500">Loading…</div>}>
-            {mode === 'login' ? <Login hideHeading /> : <Signup hideHeading />}
+            {mode === 'login' ? <Login hideHeading onSuccess={onSuccess} /> : <Signup hideHeading onSuccess={onSuccess} />}
           </Suspense>
         </div>
       </div>
