@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../lib/formService.js';
 
-function Signup() {
+function Signup({ hideHeading = false, onSuccess }) {
   const [status, setStatus] = useState('');
   const [pending, setPending] = useState(false);
   const navigate = useNavigate();
@@ -19,8 +19,12 @@ function Signup() {
         email: formData.get('email') || '',
         password: formData.get('password') || '',
       });
-      setStatus('Account created successfully. Redirecting to login…');
-      window.setTimeout(() => navigate('/login'), 700);
+      setStatus('Account created successfully.');
+      if (onSuccess) {
+        window.setTimeout(() => onSuccess(), 700);
+      } else {
+        window.setTimeout(() => navigate('/login'), 700);
+      }
     } catch (error) {
       setStatus(error.message);
     } finally {
@@ -31,9 +35,13 @@ function Signup() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 sm:px-10">
       <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-soft sm:p-12">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Create your account</p>
-        <h1 className="mt-4 text-4xl font-semibold text-slate-950">Join the mission</h1>
-        <p className="mt-4 max-w-xl text-slate-600">Create an account to start your sponsor journey, receive updates, and connect with the foundation.</p>
+        {!hideHeading && (
+          <>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Create your account</p>
+            <h1 className="mt-4 text-4xl font-semibold text-slate-950">Join the mission</h1>
+            <p className="mt-4 max-w-xl text-slate-600">Create an account to start your sponsor journey, receive updates, and connect with the foundation.</p>
+          </>
+        )}
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
           <label className="label-field">
             <span className="text-sm font-semibold text-slate-800">Full Name</span>
@@ -52,9 +60,11 @@ function Signup() {
           </button>
           <p className="form-status text-sm text-slate-600" aria-live="polite">{status}&nbsp;</p>
         </form>
-        <p className="mt-8 text-sm text-slate-600">
-          Already have an account? <a className="font-semibold text-primary hover:text-primary-dark" href="/login">Log in</a>
-        </p>
+        {!hideHeading && (
+          <p className="mt-8 text-sm text-slate-600">
+            Already have an account? <a className="font-semibold text-primary hover:text-primary-dark" href="/login">Log in</a>
+          </p>
+        )}
       </div>
     </div>
   );

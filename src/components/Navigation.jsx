@@ -4,11 +4,9 @@ const navItems = [
   { href: '/', label: 'Home' },
   { href: '/churches', label: 'Churches & Faith Communities' },
   { href: '/individuals', label: 'Individual Givers' },
-  { href: '/login', label: 'Login' },
-  { href: '/signup', label: 'Sign Up' },
 ];
 
-function Navigation() {
+function Navigation({ onOpenLogin, onOpenSignup }) {
   return (
     <header className="sticky top-0 z-20 bg-white/95 border-b border-slate-200 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
@@ -27,6 +25,20 @@ function Navigation() {
               {item.label}
             </NavLink>
           ))}
+          <button
+            type="button"
+            onClick={onOpenLogin}
+            className="font-medium transition-colors hover:text-slate-900"
+          >
+            Login
+          </button>
+          <button
+            type="button"
+            onClick={onOpenSignup}
+            className="font-medium text-primary transition-colors hover:text-primary-dark"
+          >
+            Sign Up
+          </button>
         </nav>
       </div>
     </header>
