@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 const navItems = [
   { href: '/', label: 'Home' },
+  { href: '/children', label: 'Meet the Children' },
   { href: '/churches', label: 'Churches & Faith Communities' },
   { href: '/individuals', label: 'Individual Givers' },
 ];

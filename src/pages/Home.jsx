@@ -8,6 +8,12 @@ const stats = [
   { value: '$45M+', label: 'Funds raised' },
 ];
 
+const featuredChildren = [
+  { name: 'Amina', age: '12', country: 'Kenya', story: 'Amina wants to become a nurse and is now thriving in school with a full scholarship and mentorship.', focus: 'Education & health' },
+  { name: 'Rafiq', age: '10', country: 'Bangladesh', story: 'Rafiq is bright, curious, and eager to learn, but his family needs support to keep him in school.', focus: 'School supplies & meals' },
+  { name: 'Mina', age: '14', country: 'Philippines', story: 'Mina is one of the top students in her class and hopes to become a teacher one day.', focus: 'Tutoring & digital access' },
+];
+
 function Home() {
   return (
     <div className="space-y-16 pb-16 pt-8 sm:pb-24 sm:pt-10">
@@ -40,6 +46,29 @@ function Home() {
       </section>
 
       <section className="px-6 sm:px-10">
+        <div className="mx-auto max-w-7xl rounded-[2rem] bg-gradient-to-r from-primary to-sky-700 p-8 text-white shadow-soft sm:p-10">
+          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+            <div className="space-y-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-100">Why support our work</p>
+              <h2 className="text-3xl font-semibold sm:text-4xl">Every donation helps a child stay in school, stay healthy, and stay hopeful.</h2>
+              <p className="max-w-2xl text-lg leading-8 text-sky-50">
+                We partner with families, schools, and local communities to create safe, sustainable pathways out of poverty.
+              </p>
+            </div>
+            <div className="rounded-[1.5rem] bg-white/15 p-6 backdrop-blur">
+              <h3 className="text-xl font-semibold">How your support helps</h3>
+              <ul className="mt-5 space-y-3 text-sm text-sky-50">
+                <li>• School fees, books, uniforms, and meals</li>
+                <li>• Medical care and nutrition support</li>
+                <li>• Mentorship, counseling, and safe learning spaces</li>
+                <li>• Community-led programs that build lasting opportunity</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 sm:px-10">
         <div className="mx-auto max-w-7xl">
           <PageHeader eyebrow="About us" title="We believe every child deserves access to quality education, no matter their circumstances.">
             Pilli Group Foundation is the philanthropic arm of Pilli Group, dedicated to creating lasting social impact through education, community development, and sustainable empowerment programs.
@@ -56,6 +85,38 @@ function Home() {
                 <p className="mt-3 text-slate-600">{item.description}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 sm:px-10">
+        <div className="mx-auto max-w-7xl">
+          <PageHeader eyebrow="Meet the children" title="Donors and sponsors can see the children behind the mission.">
+            Each child profile includes their story, their country, and the practical support needed to help them stay in school and thrive.
+          </PageHeader>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {featuredChildren.map((child) => (
+              <article key={child.name} className="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-soft">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-sky-100 text-xl font-semibold text-primary">
+                    {child.name[0]}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-900">{child.name}</h3>
+                    <p className="text-sm text-slate-500">{child.age} • {child.country}</p>
+                  </div>
+                </div>
+                <p className="mt-5 text-slate-600">{child.story}</p>
+                <div className="mt-5 inline-flex rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
+                  {child.focus}
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <a href="/children" className="inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark">
+              View all children profiles
+            </a>
           </div>
         </div>
       </section>
@@ -99,6 +160,30 @@ function Home() {
               </div>
             ))}
           </div>
+
+          <div className="mt-8 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-soft sm:p-10">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Impact in motion</p>
+                <h3 className="mt-2 text-2xl font-semibold text-slate-900">Our progress is visible, measured, and growing every month.</h3>
+              </div>
+              <a href="/individuals" className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark">
+                Join the movement
+              </a>
+            </div>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {[
+                { label: 'Children reached this year', value: '3,200+' },
+                { label: 'Schools supported', value: '86' },
+                { label: 'Volunteer mentors', value: '410' },
+              ].map((item) => (
+                <div key={item.label} className="rounded-[1.25rem] bg-slate-50 p-5">
+                  <p className="text-3xl font-semibold text-slate-900">{item.value}</p>
+                  <p className="mt-2 text-slate-600">{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -115,6 +200,47 @@ function Home() {
                 <footer className="mt-6 text-sm font-semibold text-slate-900">— {story.author}</footer>
               </blockquote>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 sm:px-10">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-soft sm:p-10">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Trusted by communities</p>
+              <h3 className="mt-2 text-2xl font-semibold text-slate-900">Partners and supporters who believe in long-term transformation.</h3>
+            </div>
+            <div className="flex flex-wrap gap-3 text-sm font-semibold text-slate-600">
+              {['Local Schools', 'Faith Communities', 'Corporate Partners', 'Volunteer Networks'].map((partner) => (
+                <span key={partner} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2">{partner}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 sm:px-10">
+        <div className="mx-auto max-w-7xl rounded-[2rem] bg-gradient-to-r from-slate-900 to-slate-700 p-8 text-white shadow-soft sm:p-10">
+          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+            <div className="space-y-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-300">Your generosity can change a future</p>
+              <h3 className="text-3xl font-semibold sm:text-4xl">When you sponsor a child, you become part of their story of hope.</h3>
+              <p className="max-w-2xl text-lg leading-8 text-slate-300">
+                Start with a monthly gift or a one-time contribution and help a child stay in school, healthy, and supported.
+              </p>
+            </div>
+            <div className="rounded-[1.5rem] bg-white/10 p-6 backdrop-blur">
+              <h4 className="text-xl font-semibold">Make a difference today</h4>
+              <ul className="mt-5 space-y-3 text-sm text-slate-200">
+                <li>• Sponsor a child in just a few clicks</li>
+                <li>• Follow their progress through updates</li>
+                <li>• Support education, health, and opportunity</li>
+              </ul>
+              <a href="/individuals" className="mt-6 inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100">
+                Become a sponsor
+              </a>
+            </div>
           </div>
         </div>
       </section>
