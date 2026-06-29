@@ -22,7 +22,7 @@ function Login({ hideHeading = false, onSuccess }) {
       if (onSuccess) {
         window.setTimeout(() => onSuccess(), 600);
       } else {
-        window.setTimeout(() => navigate('/'), 600);
+        window.setTimeout(() => navigate('/dashboard'), 600);
       }
     } catch (error) {
       setStatus(error.message);

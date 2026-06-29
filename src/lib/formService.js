@@ -1,6 +1,7 @@
 const USERS_KEY = 'pilli-foundation-users';
 const CURRENT_USER_KEY = 'pilli-foundation-current-user';
 const INQUIRIES_KEY = 'pilli-foundation-inquiries';
+const SPONSORSHIPS_KEY = 'pilli-foundation-sponsorships';
 
 const parseStorage = (key, fallback) => {
   try {
@@ -24,9 +25,11 @@ export function createUser({ name, email, password }) {
     throw new Error('An account with this email already exists.');
   }
 
-  users.push({ name: name.trim(), email: normalized, password });
+  const newUser = { name: name.trim(), email: normalized, password };
+  users.push(newUser);
   writeStorage(USERS_KEY, users);
-  return { name: name.trim(), email: normalized };
+  writeStorage(CURRENT_USER_KEY, { name: newUser.name, email: newUser.email });
+  return { name: newUser.name, email: newUser.email };
 }
 
 export function signIn({ email, password }) {
@@ -51,4 +54,29 @@ export async function saveInquiry({ name, email, interest, message, page, collec
   inquiries.push({ name, email, interest, message, page, collection, submittedAt: new Date().toISOString() });
   writeStorage(INQUIRIES_KEY, inquiries);
   return true;
+}
+
+export function getSponsorshipsForUser(email) {
+  if (!email) return [];
+  const sponsorships = parseStorage(SPONSORSHIPS_KEY, []);
+  return sponsorships.filter((sponsorship) => sponsorship.userEmail === email);
+}
+
+export function createSponsorship({ userEmail, childId, childName, amount, frequency, paymentMethod }) {
+  const sponsorships = parseStorage(SPONSORSHIPS_KEY, []);
+  const record = {
+    id: `SP-${Date.now()}`,
+    userEmail,
+    childId,
+    childName,
+    amount,
+    frequency,
+    paymentMethod,
+    status: 'Active',
+    startedAt: new Date().toISOString(),
+  };
+
+  sponsorships.push(record);
+  writeStorage(SPONSORSHIPS_KEY, sponsorships);
+  return record;
 }

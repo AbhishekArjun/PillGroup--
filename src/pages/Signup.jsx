@@ -23,7 +23,7 @@ function Signup({ hideHeading = false, onSuccess }) {
       if (onSuccess) {
         window.setTimeout(() => onSuccess(), 700);
       } else {
-        window.setTimeout(() => navigate('/login'), 700);
+        window.setTimeout(() => navigate('/dashboard'), 700);
       }
     } catch (error) {
       setStatus(error.message);

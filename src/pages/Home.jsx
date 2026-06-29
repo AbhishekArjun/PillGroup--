@@ -1,5 +1,6 @@
 import ContactForm from '../components/ContactForm.jsx';
 import PageHeader from '../components/PageHeader.jsx';
+import sponsorshipHero from '../assets/images/sponsorship-hero.png';
 
 const stats = [
   { value: '12,500+', label: 'Children sponsored' },
@@ -34,13 +35,16 @@ function Home() {
               </a>
             </div>
           </div>
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-soft">
+          <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-soft">
+            <img src={sponsorshipHero} alt="Children learning in a supported classroom" className="aspect-[4/3] w-full object-cover" />
+            <div className="p-8">
             <h3 className="text-xl font-semibold text-slate-900">Why families trust us</h3>
             <ul className="mt-6 space-y-3 text-slate-600">
               <li>100% of sponsorship funds go directly to the child’s education</li>
               <li>Independent annual audits and real-time tracking</li>
               <li>Quarterly updates, photos, and school progress reports</li>
             </ul>
+            </div>
           </div>
         </div>
       </section>

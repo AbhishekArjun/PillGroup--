@@ -1,42 +1,7 @@
-import ContactForm from '../components/ContactForm.jsx';
-import PageHeader from '../components/PageHeader.jsx';
+import { Link } from 'react-router-dom';
+import { children } from '../data/children.js';
 
-const childProfiles = [
-  {
-    name: 'Amina',
-    age: '12',
-    country: 'Kenya',
-    need: 'School fees, books, and health support',
-    story: 'Amina is a bright student who dreams of becoming a nurse and helping her community thrive.',
-    impact: 'Your sponsorship helps her stay in school and receive regular medical checkups.',
-  },
-  {
-    name: 'Rafiq',
-    age: '10',
-    country: 'Bangladesh',
-    need: 'Meals, uniforms, and digital learning tools',
-    story: 'Rafiq loves drawing and learning new things, but his family needs support to keep him in school.',
-    impact: 'A sponsor helps him access nutritious meals, school supplies, and a safe learning environment.',
-  },
-  {
-    name: 'Mina',
-    age: '14',
-    country: 'Philippines',
-    need: 'Tutoring, internet access, and mentorship',
-    story: 'Mina is excelling in her studies and hopes to be a teacher one day.',
-    impact: 'Ongoing support gives her the confidence and resources to reach her goals.',
-  },
-  {
-    name: 'Daniel',
-    age: '11',
-    country: 'Uganda',
-    need: 'Books, transportation, and school fees',
-    story: 'Daniel is eager to learn and is already helping his younger siblings with reading.',
-    impact: 'Sponsor support keeps him on track for a brighter future and a stronger family.',
-  },
-];
-
-function Children() {
+function LegacyChildren() {
   return (
     <div className="space-y-16 pb-16 pt-8 sm:pb-24 sm:pt-10">
       <section className="overflow-hidden rounded-[2rem] bg-slate-50 px-6 py-12 shadow-soft sm:px-10 sm:py-16">
@@ -109,6 +74,71 @@ function Children() {
             </ul>
           </div>
           <ContactForm collection="child-sponsorship-interest" page="children" legend="Request sponsorship details" />
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function Children() {
+  return (
+    <div className="space-y-10 px-4 py-8 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl rounded-2xl border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">Available Children</p>
+            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">Choose a child to sponsor.</h1>
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
+              Browse children waiting for education support, view each profile, and start sponsorship in a simple step-by-step flow.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-slate-50 p-5">
+            <p className="text-sm font-semibold text-slate-950">Sponsor flow</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Select Child -&gt; Fill Details -&gt; Payment -&gt; Dashboard confirmation</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {children.map((child) => (
+            <article key={child.id} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft">
+              <img src={child.image} alt={`${child.name} sponsorship profile`} className="aspect-[4/3] w-full object-cover" loading="lazy" />
+              <div className="p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-900">{child.name}</h3>
+                    <p className="mt-1 text-sm text-slate-500">Age {child.age}</p>
+                  </div>
+                  <p className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">Rs. {child.monthlyAmount.toLocaleString('en-IN')}/mo</p>
+                </div>
+
+                <dl className="mt-4 grid gap-2 text-sm text-slate-600">
+                  <div className="flex justify-between gap-3">
+                    <dt>School</dt>
+                    <dd className="font-semibold text-slate-900">{child.grade}</dd>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <dt>Location</dt>
+                    <dd className="font-semibold text-slate-900">{child.location}</dd>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <dt>Need</dt>
+                    <dd className="text-right font-semibold text-slate-900">{child.focus}</dd>
+                  </div>
+                </dl>
+
+                <div className="mt-5 flex gap-2">
+                  <Link to={`/children/${child.id}`} className="flex-1 rounded-full border border-slate-300 px-4 py-2 text-center text-sm font-semibold text-slate-700 transition hover:bg-slate-100">
+                    View
+                  </Link>
+                  <Link to={`/sponsor/${child.id}`} className="flex-1 rounded-full bg-primary px-4 py-2 text-center text-sm font-semibold text-white transition hover:bg-primary-dark">
+                    Sponsor
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
     </div>
